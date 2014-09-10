@@ -19,15 +19,41 @@
 
 				<div class="site-info">
 					<?php do_action( '_tk_credits' ); ?>
-					<a href="http://wordpress.org/" title="<?php esc_attr_e( 'A Semantic Personal Publishing Platform', '_tk' ); ?>" rel="generator"><?php printf( __( 'Proudly powered by %s', '_tk' ), 'WordPress' ); ?></a>
+					<a href="http://mapker.co/" title="The place to make" rel="generator" target="_blank"> Proudly powered by Mapker</a>
 					<span class="sep"> | </span>
-					<?php printf( __( 'Theme: %1$s by %2$s.', '_tk' ), '_tk', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
+					Graphism & developement by <a href="http://pierre-mary.fr/" rel="designer" target="_blank">Pierre Mary</a>
 				</div><!-- close .site-info -->
 
 			</div>
 		</div>
 	</div><!-- close .container -->
 </footer><!-- close #colophon -->
+
+<!-- To move in its own file -->
+<script>
+	var addRippleEffect = function (e) {
+    var target = e.target;
+    var targetClassName = target.className;
+    if (target.tagName.toLowerCase() !== 'button') return false;
+    var rect = target.getBoundingClientRect();
+    var ripple = target.querySelector('.ripple');
+    if (!ripple) {
+        ripple = document.createElement('span');
+        ripple.className = 'ripple';
+        ripple.style.height = ripple.style.width = Math.max(rect.width, rect.height) + 'px';
+        target.appendChild(ripple);
+    }
+    ripple.classList.remove('show');
+    var top = e.pageY - rect.top - ripple.offsetHeight / 2 - document.body.scrollTop;
+    var left = e.pageX - rect.left - ripple.offsetWidth / 2 - document.body.scrollLeft;
+    ripple.style.top = top + 'px';
+    ripple.style.left = left + 'px';
+    ripple.classList.add('show');
+    return false;
+}
+
+document.addEventListener('click', addRippleEffect, false);
+</script>
 
 <?php wp_footer(); ?>
 

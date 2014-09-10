@@ -1,0 +1,65 @@
+.page-template-home-page-php .site-navigation .navbar{
+	margin-bottom: 0px;
+}
+
+.page-template-home-page-php .main-content{
+	z-index: 2;
+}
+
+.page-template-home-page-php .main-content .container{
+	width: 100%;
+}
+
+.page-template-home-page-php .page-header{
+	display: none;
+}
+
+.page-template-home-page-php .site-header-inner{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.page-template-home-page-php button{
+	margin-bottom: 15px;
+}
+
+.page-template-home-page-php .entry-content button{
+	top: 0px;
+}
+
+/* Lab animation */
+.page-template-home-page-php .schema-anim { 
+	height: 400px;
+	width: 500px;
+	z-index: 1;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+.page-template-home-page-php div.schema-anim div#canvas_line_back, 
+.page-template-home-page-php div.schema-anim div#canvas_line1, 
+.page-template-home-page-php div.schema-anim div#canvas_container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 400px;
+	width: 500px;
+}
+
+/* Custum google map */
+#mapp0_layout{
+	border: none !important;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+.mapp-layout{
+	margin: 0px;
+}
+#mapp0_links{
+	background-color: transparent;
+	border: none;
+}
+#mapp0 .gm-style-cc,
+#mapp0 .gmnoprint:last-child .gm-style-mtc{
+	display: none;
+}

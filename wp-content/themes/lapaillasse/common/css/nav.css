@@ -1,0 +1,47 @@
+.site-navigation{
+	z-index: 10;
+}
+
+.site-navigation .navbar-default{
+	z-index: 10;
+	height: 64px;
+	background-color: #00bcf2;
+	border: none;
+	border-radius: 0px;
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.26);
+}
+
+.site-navigation #main-menu li{
+	height: 64px;
+	padding: 15px;
+	padding-top: 22px;
+}
+
+.site-navigation #main-menu a{
+	color: #ffffff;
+	padding: 0px;
+	font-size: 19px;
+}
+
+.site-navigation .navbar-nav li:hover{
+	border-bottom: 2px solid;
+	color: #ffffff;
+}
+
+.site-navigation .navbar-brand{
+	padding: 9px 15px;
+}
+
+.site-navigation .menu-item{
+	cursor: pointer;
+}
+
+.navbar-default .navbar-nav > .active{
+	color: #ffffff;
+	border-bottom: 2px solid;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover{
+	background-color: transparent;
+}

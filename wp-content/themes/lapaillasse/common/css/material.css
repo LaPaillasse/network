@@ -1,0 +1,145 @@
+/*
+ * Bootstrap surcouche
+ * Material Design
+ */
+
+/**
+ * 01 - Shadows
+ * 02 - Buttons
+ */
+
+/**
+ * 01 - Shadows
+ *
+ * Usage:
+ * <div class="whatever"> // The div you want to add a shadow. Must have a h & w
+ *   <div class="shadow shadow-depth-1-bottom"></div>
+ *   <div class="shadow shadow-depth-1-top"></div>
+ *   ...
+ */
+.shadow{
+	position: relative;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	border-radius: inherit;
+	pointer-events: none;
+}
+
+.shadow-depth-0{
+	box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+.shadow-depth-1-top{
+ 	box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.16);
+}
+.shadow-depth-1-bottom{
+ 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+.shadow-depth-2-top{
+ 	box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.shadow-depth-2-bottom{
+ 	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2);
+}
+
+.shadow-depth-3-top{
+	box-shadow: 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+.shadow-depth-3-bottom{
+	box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24);
+}
+
+.shadow-depth-4-top{
+ 	box-shadow: 0 25px 55px 0 rgba(0, 0, 0, 0.21);
+}
+.shadow-depth-4-bottom{
+ 	box-shadow: 0 16px 28px 0 rgba(0, 0, 0, 0.22);
+}
+
+.shadow-depth-5-top{
+	box-shadow: 0 40px 77px 0 rgba(0, 0, 0, 0.22);
+}
+.shadow-depth-5-bottom{
+	box-shadow: 0 27px 24px 0 rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * 02 - Buttons
+ * Inspiration: http://www.polymer-project.org/components/paper-elements/demo.html#paper-button
+ * JS Animation : http://codepen.io/idiotWu/pen/nefhC
+ */
+button {
+	border: none !important;
+	outline: none !important;
+	position: relative;
+	display: block;
+	background: #dfdfdf;
+	cursor: pointer;
+	overflow: hidden;
+	user-select: none;
+	-webkit-user-select: none;
+	border-radius: 2px;
+}
+
+.btn:active{
+	border: none;
+}
+
+.btn-primary{
+	background-color: #00bcf2 !important;
+	background: #00bcf2 !important;
+	transition: box-shadow .5s ease;
+	-webkit-transition: -webkit-box-shadow .5s ease;
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+	-webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26) !important;
+	border: none;
+}
+.btn-primary:hover,
+.btn-primary:active{
+	border: none;
+	box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2) !important;
+	-webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2) !important;
+}
+.btn-primary:active{
+	background-color: #00bcf2;
+}
+.btn-primary:focus{
+	border: none;
+	background-color: #00bcf2;
+}
+.btn-primary:hover{
+	background-color: #00bcf2;
+}
+
+/* Button animation */
+.ripple {
+	position: absolute;
+	background: rgba(0,0,0,.15);
+	border-radius: 100%;
+	transform: scale(0);
+	-webkit-transform: scale(0);
+	pointer-events: none;
+}
+
+.ripple.show {
+	animation: ripple .75s ease-out;
+	-webkit-animation: ripple .75s ease-out;
+}
+
+@keyframes ripple {
+	to {
+		transform: scale(2);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes ripple {
+	to {
+		-webkit-transform: scale(2);
+		opacity: 0;
+	}
+}

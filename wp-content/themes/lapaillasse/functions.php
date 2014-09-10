@@ -147,3 +147,96 @@ require get_template_directory() . '/includes/jetpack.php';
  * Load custom WordPress nav walker.
  */
 require get_template_directory() . '/includes/bootstrap-wp-navwalker.php';
+
+function get_excerpt_by_id($post_id){
+	$the_post = get_post($post_id); //Gets post ID
+	$the_excerpt = $the_post->post_content; //Gets post_content to be used as a basis for the excerpt
+	$excerpt_length = 35; //Sets excerpt length by word count
+	$the_excerpt = strip_tags(strip_shortcodes($the_excerpt)); //Strips tags and images
+	$words = explode(' ', $the_excerpt, $excerpt_length + 1);
+	if(count($words) > $excerpt_length) :
+		array_pop($words);
+		//array_push($words, '…');
+		$the_excerpt = implode(' ', $words);
+	endif;
+	$the_excerpt = $the_excerpt;
+	return $the_excerpt;
+}
+
+
+add_action( 'init', 'create_post_type' );
+function create_post_type() {
+  /* Custum post type for projects */
+  register_post_type( 'lp_project',
+    array(
+      'labels' => array(
+        'name' => __( 'Projects' ),
+        'singular_name' => __( 'Project' )
+      ),
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'projects'),
+    'supports' => array( 'title', 'comments', 'editor', 'thumbnail', 'custom-fields', 'revisions'),
+    )
+  );
+
+  /* Custum post type for documentation */
+  register_post_type( 'lp_documentation',
+    array(
+      'labels' => array(
+        'name' => __( 'Documentations' ),
+        'singular_name' => __( 'Documentation' )
+      ),
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'wiki'),
+    'supports' => array( 'title', 'comments', 'editor', 'thumbnail', 'custom-fields', 'revisions'),
+    )
+  );
+}
+
+/* Custum taxonomies for projects */
+function my_taxonomies_project() {
+  $labels = array(
+    'name'              => _x( 'Project Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Project Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Project Categories' ),
+    'all_items'         => __( 'All Project Categories' ),
+    'parent_item'       => __( 'Parent Project Category' ),
+    'parent_item_colon' => __( 'Parent Project Category:' ),
+    'edit_item'         => __( 'Edit Project Category' ), 
+    'update_item'       => __( 'Update Project Category' ),
+    'add_new_item'      => __( 'Add New Project Category' ),
+    'new_item_name'     => __( 'New Project Category' ),
+    'menu_name'         => __( 'Project Categories' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'project_category', 'lp_project', $args );
+}
+add_action( 'init', 'my_taxonomies_project', 0 );
+
+/* Custum taxonomies for documentations */
+function my_taxonomies_documentation() {
+  $labels = array(
+    'name'              => _x( 'Doc Categories', 'taxonomy general name' ),
+    'singular_name'     => _x( 'Doc Category', 'taxonomy singular name' ),
+    'search_items'      => __( 'Search Doc Categories' ),
+    'all_items'         => __( 'All Doc Categories' ),
+    'parent_item'       => __( 'Parent Doc Category' ),
+    'parent_item_colon' => __( 'Parent Doc Category:' ),
+    'edit_item'         => __( 'Edit Doc Category' ), 
+    'update_item'       => __( 'Update Doc Category' ),
+    'add_new_item'      => __( 'Add New Doc Category' ),
+    'new_item_name'     => __( 'New Doc Category' ),
+    'menu_name'         => __( 'Doc Categories' ),
+  );
+  $args = array(
+    'labels' => $labels,
+    'hierarchical' => true,
+  );
+  register_taxonomy( 'documentation_category', 'lp_documentation', $args );
+}
+add_action( 'init', 'my_taxonomies_documentation', 0 );
