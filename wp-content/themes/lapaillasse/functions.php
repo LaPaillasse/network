@@ -193,6 +193,20 @@ function create_post_type() {
     'supports' => array( 'title', 'comments', 'editor', 'thumbnail', 'custom-fields', 'revisions'),
     )
   );
+
+  /* Custum post type for places */
+  register_post_type( 'lp_place',
+    array(
+      'labels' => array(
+        'name' => __( 'Places' ),
+        'singular_name' => __( 'Place' )
+      ),
+    'public' => true,
+    'has_archive' => true,
+    'rewrite' => array('slug' => 'places'),
+    'supports' => array( 'title', 'comments', 'editor', 'thumbnail'),
+    )
+  );
 }
 
 /* Custum taxonomies for projects */
